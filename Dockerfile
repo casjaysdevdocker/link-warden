@@ -1,4 +1,4 @@
-FROM casjaysdevdocker/node:latest as build
+FROM casjaysdevdocker/nodejs:latest as build
 
 ARG LICENSE=WTFPL \
   IMAGE_NAME=link-warden \
