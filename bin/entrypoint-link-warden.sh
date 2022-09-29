@@ -55,9 +55,12 @@ CONFIG_DIR="${CONFIG_DIR:-$(__find /config/ 2>/dev/null | grep '^' || false)}"
 CONFIG_COPY="${CONFIG_COPY:-false}"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Additional variables
-CLIENT_PORT=${CLIENT_PORT:-2500}
-API_PORT=${API_PORT:-5700}
-API_ADDRESS=${API_ADDRESS:-localhost}
+export CLIENT_PORT="${CLIENT_PORT:-2500}"
+export API_PORT="${API_PORT:-5700}"
+export API_ADDRESS="${API_ADDRESS:-localhost}"
+export MONGODB_URI="${MONGODB_URI:-mongodb://localhost:27017}"
+export DB_NAME="${DB_NAME:-link_warden}"
+export STORAGE_LOCATION="${STORAGE_LOCATION:-/data/link_warden}"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Export variables
 export TZ HOSTNAME
@@ -68,7 +71,7 @@ export TZ HOSTNAME
 [ -f "/root/env.sh" ] && [ ! -f "/config/.env.sh" ] && cp -Rf "/root/env.sh" "/config/.env.sh"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Set timezone
-[ -n "${TZ}" ] && echo "${TZ}" >/etc/timezone
+[ -n "${TZ}" ] && echo "${TZ}" >"/etc/timezone"
 [ -f "/usr/share/zoneinfo/${TZ}" ] && ln -sf "/usr/share/zoneinfo/${TZ}" "/etc/localtime"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Set hostname

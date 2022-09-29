@@ -1,9 +1,9 @@
-FROM casjaysdevdocker/mongodb:latest as build
+FROM casjaysdevdocker/node:latest as build
 
 ARG LICENSE=WTFPL \
   IMAGE_NAME=link-warden \
   TIMEZONE=America/New_York \
-  PORT=
+  PORT="2500 5500"
 
 ENV SHELL=/bin/bash \
   TERM=xterm-256color \
