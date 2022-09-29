@@ -13,7 +13,7 @@ ENV SHELL=/bin/bash \
 RUN mkdir -p /bin/ /config/ /data/ && \
   rm -Rf /bin/.gitkeep /config/.gitkeep /data/.gitkeep && \
   apk update -U --no-cache && \
-  apk add --no-cache node && \
+  apk add --no-cache nodejs && \
   git clone -q https://github.com/Daniel31x13/link-warden /app && \
   cd /app && npm i -g npm@latest npm ci --legacy-peer-deps
 
